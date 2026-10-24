@@ -53,10 +53,10 @@
          HALDI CEREMONY
     ═══════════════════════════════════════ -->
 
-    <!-- Haldi Couple Medallion Avatar -->
+    <!-- Haldi Groom Medallion Avatar -->
     <div class="avatar-wrap animate-scale-in">
       <div class="avatar-frame">
-        <img src="/haldi_avatar.png" alt="Shubham & Shreya - Haldi Ceremony" class="couple-avatar" />
+        <img src="/groom_haldi_avatar.png" alt="Shubham - Haldi Ceremony" class="couple-avatar" />
         <span class="avatar-sparkle s-top">🌿</span>
         <span class="avatar-sparkle s-right">🌼</span>
         <span class="avatar-sparkle s-left">✨</span>
@@ -66,25 +66,15 @@
     <p class="invite-label animate-fade-in delay-200">YOU ARE INVITED TO</p>
     <p class="script-sub haldi-sub animate-fade-in delay-300">the haldi ceremony of</p>
 
-    <!-- Main names with ample line-height and padding so they never get cut off -->
+    <!-- Main name - Groom only for Haldi -->
     <div class="name-container">
       <h1 class="name haldi-name animate-fade-in-up delay-400">Shubham</h1>
     </div>
-    <div class="and-row animate-scale-in delay-500">
-      <span class="h-line"></span>
-      <span class="weds-heart">♥</span>
-      <span class="weds-text">&amp;</span>
-      <span class="weds-heart">♥</span>
-      <span class="h-line r"></span>
-    </div>
-    <div class="name-container">
-      <h1 class="name haldi-name animate-fade-in-up delay-600">Shreya</h1>
-    </div>
 
-    <div class="ornament haldi-orn animate-fade-in delay-700">✦ ——— ✦ ——— ✦</div>
+    <div class="ornament haldi-orn animate-fade-in delay-500">✦ ——— ✦ ——— ✦</div>
 
     <div class="info-blurb reveal-scale">
-      <p>The sacred Haldi ceremony marks the beginning of our wedding celebrations. Join us as we begin this beautiful journey with blessings, colours, and joy! 🌸</p>
+      <p>The sacred Haldi ceremony marks the beginning of our wedding celebrations. Join us to bless Shubham with turmeric, love, and joy as we begin this beautiful journey! 🌸</p>
     </div>
 
     <div class="details-grid reveal-left">
@@ -404,12 +394,10 @@
   .bride  { margin-top: 0px; }
 
   /* ── Divider rows ── */
-  .and-row, .weds-row {
+  .weds-row {
     display: flex; align-items: center; gap: 9px;
     width: 100%; max-width: 280px; margin: 2px 0;
   }
-  .h-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, #d4a017); }
-  .h-line.r { background: linear-gradient(to left, transparent, #d4a017); }
   .w-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--gold)); }
   .w-line.r { background: linear-gradient(to left, transparent, var(--gold)); }
   .weds-text { font-family: var(--font-serif); font-size: 1rem; font-style: italic; color: var(--text-medium); letter-spacing: 0.08em; }
