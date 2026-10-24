@@ -276,7 +276,7 @@
     font-family: var(--font-script);
     font-size: clamp(3.2rem, 9.8vw, 5.2rem);
     line-height: 1.35;
-    padding: 0.12em 0.22em 0.12em 0.46em;
+    padding: 0.15em 0.25em;
     margin: 0;
     display: inline-block;
     text-align: center;
