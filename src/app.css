@@ -87,6 +87,11 @@
   --wedding-road: linear-gradient(180deg, #2a313d 0%, #202630 50%, #171c24 100%);
 }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 html {
   scroll-behavior: smooth;
   transition: background-color 0.4s ease, color 0.4s ease;
@@ -97,8 +102,15 @@ body {
   background-color: var(--bg-page);
   color: var(--text-dark);
   min-height: 100vh;
-  overflow-x: hidden;
   transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
 }
 
 /* ══════════════════════════════════════════
@@ -112,6 +124,14 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+@media (max-width: 640px) {
+  .floating-bar {
+    top: 8px;
+    right: 10px;
+    gap: 6px;
+  }
 }
 
 .tool-btn {
@@ -132,6 +152,15 @@ body {
   gap: 6px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s;
+}
+
+@media (max-width: 640px) {
+  .tool-btn {
+    padding: 5px 10px;
+    font-size: 0.68rem;
+    gap: 4px;
+    border-radius: 20px;
+  }
 }
 
 [data-theme="dark"] .tool-btn {
@@ -171,12 +200,19 @@ body {
 
 .env-container {
   position: relative;
-  width: min(440px, 92vw);
+  width: 440px;
   height: 290px;
   perspective: 1000px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transform-origin: center center;
+}
+
+@media (max-width: 480px) {
+  .env-container {
+    transform: scale(calc((100vw - 32px) / 440));
+  }
 }
 
 .envelope {
@@ -350,6 +386,15 @@ body {
   letter-spacing: 0.05em;
   text-shadow: 0 2px 8px rgba(0,0,0,0.7);
   animation: fadeInOut 2.5s ease-in-out infinite;
+}
+
+@media (max-width: 480px) {
+  .env-instructions {
+    font-size: 0.95rem;
+    padding: 0 16px;
+    text-align: center;
+    margin-top: 16px;
+  }
 }
 
 @keyframes fadeInOut {

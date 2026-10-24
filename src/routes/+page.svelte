@@ -158,8 +158,8 @@
   /* ── Page (single card) ── */
   .page {
     position: relative;
-    max-width: 680px;
-    margin: 30px auto 60px;
+    width: min(680px, calc(100% - 24px));
+    margin: 24px auto 60px;
     padding: 0 16px;
     background: var(--card-bg);
     box-shadow: var(--card-shadow);
@@ -207,8 +207,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: clamp(80px, 15vw, 130px) 24px 60px;
+    padding: clamp(75px, 14vw, 130px) 18px 50px;
     text-align: center;
+    width: 100%;
   }
 
   /* ── Couple Avatar ── */
@@ -274,7 +275,7 @@
   }
   .name {
     font-family: var(--font-script);
-    font-size: clamp(3.2rem, 9.8vw, 5.2rem);
+    font-size: clamp(2.5rem, 8.5vw, 5.2rem);
     line-height: 1.35;
     padding: 0.15em 0.25em;
     margin: 0;
@@ -286,6 +287,7 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 2px 8px rgba(0,0,0,0.06));
+    max-width: 100%;
   }
   .groom { margin-bottom: 0px; }
   .bride { margin-top: 0px; }
@@ -679,14 +681,72 @@
   }
 
   /* ── Responsive ── */
-  @media (max-width: 480px) {
-    .content { padding-top: 100px; padding-left: 12px; padding-right: 12px; }
-    .details-grid { flex-direction: column; }
-    .d-sep { width: 100%; height: 1px; }
-    .countdown { gap: 4px; }
-    .cd-box { min-width: 48px; padding: 8px 8px; }
-    .floral { width: 115px; }
-    .venue-card { padding: 16px 14px; }
-    .cs-car-img { width: 85px; }
+  @media (max-width: 640px) {
+    .page {
+      width: calc(100% - 16px);
+      margin: 14px auto 40px;
+      padding: 0 4px;
+    }
+    .content {
+      padding-top: 85px;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-bottom: 35px;
+    }
+    .floral {
+      width: clamp(75px, 20vw, 100px);
+    }
+    .avatar-frame {
+      width: 110px;
+      height: 110px;
+    }
+    .details-grid {
+      flex-direction: column;
+      margin: 8px 0 16px;
+    }
+    .detail-cell {
+      padding: 12px 14px;
+    }
+    .d-sep {
+      width: 100%;
+      height: 1px;
+    }
+    .venue-card {
+      padding: 16px 14px;
+    }
+    .countdown {
+      gap: 3px;
+    }
+    .cd-box {
+      min-width: 46px;
+      padding: 8px 6px;
+      border-radius: 9px;
+    }
+    .cd-num {
+      font-size: 1.35rem;
+    }
+    .cd-unit {
+      font-size: 0.46rem;
+      letter-spacing: 0.08em;
+    }
+    .cd-colon {
+      font-size: 1rem;
+    }
+    .cs-car-img {
+      width: 80px;
+    }
+    :global(.car-go) .cs-car-wrap {
+      left: calc(100% - 130px);
+    }
+    .cs-pin {
+      right: 12px;
+      font-size: 1.6rem;
+    }
+    .cs-caption {
+      font-size: 0.8rem;
+    }
+    .map-wrap {
+      height: 190px;
+    }
   }
 </style>
