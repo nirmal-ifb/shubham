@@ -28,6 +28,7 @@
 <div class="page">
   <!-- Floral corners blend into cream/dark background -->
   <img src="/floral_tl.png" alt="" class="floral floral-tl" aria-hidden="true" />
+  <img src="/floral_tl.png" alt="" class="floral floral-tr" aria-hidden="true" />
   <img src="/floral_br.png" alt="" class="floral floral-br" aria-hidden="true" />
 
   <!-- Single animated border frame -->
@@ -194,6 +195,7 @@
     transition: filter 0.4s ease;
   }
   .floral-tl { top: -4px; left: -4px; transform-origin: top left; animation: scaleIn 1.2s ease both; }
+  .floral-tr { top: -4px; right: -4px; transform: scaleX(-1); transform-origin: top right; animation: scaleIn 1.2s ease 0.15s both; }
   .floral-br { bottom: -4px; right: -4px; transform-origin: bottom right; animation: scaleIn 1.2s ease 0.3s both; }
 
   @keyframes scaleIn { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
@@ -266,15 +268,18 @@
     overflow: visible;
     display: flex;
     justify-content: center;
+    align-items: center;
+    text-align: center;
     padding: 2px 0;
   }
   .name {
     font-family: var(--font-script);
     font-size: clamp(3.2rem, 9.8vw, 5.2rem);
     line-height: 1.35;
-    padding: 0.15em 0.35em;
+    padding: 0.12em 0.22em 0.12em 0.46em;
     margin: 0;
     display: inline-block;
+    text-align: center;
     overflow: visible;
     background: var(--name-gradient);
     -webkit-background-clip: text;

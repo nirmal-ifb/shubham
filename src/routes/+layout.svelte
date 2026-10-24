@@ -179,7 +179,6 @@
 
       <!-- Card that slides out -->
       <div class="env-invitation-card">
-        <span class="env-card-ornament">✦ Royal Invitation ✦</span>
         <h2 class="env-card-title">Shubham &amp; Shreya</h2>
         <p class="env-card-sub">Together with their families</p>
       </div>

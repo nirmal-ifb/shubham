@@ -40,6 +40,7 @@
 <div class="page">
   <!-- Floral corners blend into cream/dark background -->
   <img src="/floral_tl.png" alt="" class="floral floral-tl" aria-hidden="true" />
+  <img src="/floral_tl.png" alt="" class="floral floral-tr" aria-hidden="true" />
   <img src="/floral_br.png" alt="" class="floral floral-br" aria-hidden="true" />
 
   <!-- Single animated border frame -->
@@ -52,14 +53,13 @@
          HALDI CEREMONY
     ═══════════════════════════════════════ -->
 
-    <!-- Haldi Badge -->
-    <div class="badge-ring animate-scale-in">
-      <svg viewBox="0 0 120 120" class="badge-svg" aria-hidden="true">
-        <circle cx="60" cy="60" r="52" fill="none" stroke="#d4a017" stroke-width="1.5" class="ring-circle" />
-      </svg>
-      <div class="badge-inner">
-        <span class="badge-emoji">🌿</span>
-        <span class="badge-label">Haldi</span>
+    <!-- Haldi Couple Medallion Avatar -->
+    <div class="avatar-wrap animate-scale-in">
+      <div class="avatar-frame">
+        <img src="/haldi_avatar.png" alt="Shubham & Shreya - Haldi Ceremony" class="couple-avatar" />
+        <span class="avatar-sparkle s-top">🌿</span>
+        <span class="avatar-sparkle s-right">🌼</span>
+        <span class="avatar-sparkle s-left">✨</span>
       </div>
     </div>
 
@@ -316,6 +316,7 @@
     transition: filter 0.4s ease;
   }
   .floral-tl { top: -4px; left: -4px; transform-origin: top left; animation: scaleIn 1.2s ease both; }
+  .floral-tr { top: -4px; right: -4px; transform: scaleX(-1); transform-origin: top right; animation: scaleIn 1.2s ease 0.15s both; }
   .floral-br { bottom: -4px; right: -4px; transform-origin: bottom right; animation: scaleIn 1.2s ease 0.3s both; }
 
   @keyframes scaleIn   { from{opacity:0;transform:scale(0.85)} to{opacity:1;transform:scale(1)} }
@@ -329,16 +330,7 @@
     text-align: center;
   }
 
-  /* ── Haldi badge ── */
-  .badge-ring {
-    position: relative; width: 104px; height: 104px;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 20px;
-  }
-  .badge-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .ring-circle { stroke-dasharray: 326; stroke-dashoffset: 326; animation: ringDraw 2s ease forwards 0.2s; }
-  .badge-inner { display: flex; flex-direction: column; align-items: center; z-index: 1; }
-  .badge-label { font-family: var(--font-script); font-size: 1.3rem; color: var(--haldi-accent); line-height: 1.1; }
+
 
   /* ── Couple Avatar ── */
   .avatar-wrap {
@@ -378,21 +370,23 @@
   .invite-label { font-family: var(--font-sans); font-size: 0.67rem; letter-spacing: 0.26em; font-weight: 700; color: var(--text-medium); margin-bottom: 4px; text-transform: uppercase; }
   .haldi-sub { color: var(--haldi-accent); }
 
-  /* ── Names — NO CUT OFF: safe line-height, padding, and visible overflow ── */
   .name-container {
     width: 100%;
     overflow: visible;
     display: flex;
     justify-content: center;
+    align-items: center;
+    text-align: center;
     padding: 2px 0;
   }
   .name {
     font-family: var(--font-script);
     font-size: clamp(3.2rem, 9.8vw, 5.2rem);
     line-height: 1.35;
-    padding: 0.15em 0.35em;
+    padding: 0.12em 0.22em 0.12em 0.46em;
     margin: 0;
     display: inline-block;
+    text-align: center;
     overflow: visible;
     filter: drop-shadow(0 2px 8px rgba(0,0,0,0.06));
   }
