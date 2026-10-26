@@ -38,6 +38,60 @@
 
 <!-- Single unified card -->
 <div class="page">
+  <!-- Subtle Animated Background Effects inside Haldi Invitation Card -->
+  <div class="card-bg-fx" aria-hidden="true">
+    <div class="card-orb orb-top haldi-orb"></div>
+    <div class="card-orb orb-center haldi-orb"></div>
+    <div class="card-orb orb-bottom haldi-orb"></div>
+
+    <div class="mandala-watermark-wrap haldi-mandala">
+      <svg class="mandala-watermark" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="250" cy="250" r="235" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 4" />
+        <circle cx="250" cy="250" r="215" stroke="currentColor" stroke-width="1.2" />
+        <circle cx="250" cy="250" r="175" stroke="currentColor" stroke-width="0.75" />
+        <circle cx="250" cy="250" r="140" stroke="currentColor" stroke-width="1" stroke-dasharray="6 6" />
+        <circle cx="250" cy="250" r="95" stroke="currentColor" stroke-width="0.8" />
+        <circle cx="250" cy="250" r="55" stroke="currentColor" stroke-width="1.2" />
+        <circle cx="250" cy="250" r="22" stroke="currentColor" stroke-width="0.8" fill="currentColor" fill-opacity="0.1" />
+
+        <g stroke="currentColor" stroke-width="0.75">
+          <path d="M 250 15 C 235 90 235 130 250 155 C 265 130 265 90 250 15 Z" />
+          <path d="M 250 485 C 235 410 235 370 250 345 C 265 370 265 410 250 485 Z" />
+          <path d="M 15 250 C 90 235 130 235 155 250 C 130 265 90 265 15 250 Z" />
+          <path d="M 485 250 C 410 235 370 235 345 250 C 370 265 410 265 485 250 Z" />
+
+          <path d="M 84 84 C 137 137 165 165 182 182 C 165 199 137 227 84 280" />
+          <path d="M 416 84 C 363 137 335 165 318 182 C 335 199 363 227 416 280" />
+          <path d="M 84 416 C 137 363 165 335 182 318 C 165 301 137 273 84 220" />
+          <path d="M 416 416 C 363 363 335 335 318 318 C 335 301 363 273 416 220" />
+
+          <path d="M 250 15 C 235 90 235 130 250 155 C 265 130 265 90 250 15 Z" transform="rotate(45 250 250)" />
+          <path d="M 250 15 C 235 90 235 130 250 155 C 265 130 265 90 250 15 Z" transform="rotate(135 250 250)" />
+          <path d="M 250 15 C 235 90 235 130 250 155 C 265 130 265 90 250 15 Z" transform="rotate(225 250 250)" />
+          <path d="M 250 15 C 235 90 235 130 250 155 C 265 130 265 90 250 15 Z" transform="rotate(315 250 250)" />
+        </g>
+
+        <g stroke="currentColor" stroke-width="0.6">
+          <polygon points="250,195 264,236 305,250 264,264 250,305 236,264 195,250 236,236" />
+          <polygon points="250,195 264,236 305,250 264,264 250,305 236,264 195,250 236,236" transform="rotate(45 250 250)" />
+        </g>
+      </svg>
+    </div>
+
+    <div class="card-shimmer haldi-shimmer"></div>
+
+    <div class="card-stardust">
+      <span class="star s1 haldi-star"></span>
+      <span class="star s2 haldi-star"></span>
+      <span class="star s3 haldi-star"></span>
+      <span class="star s4 haldi-star"></span>
+      <span class="star s5 haldi-star"></span>
+      <span class="star s6 haldi-star"></span>
+      <span class="star s7 haldi-star"></span>
+      <span class="star s8 haldi-star"></span>
+    </div>
+  </div>
+
   <!-- Floral corners blend into cream/dark background -->
   <img src="/floral_tl.png" alt="" class="floral floral-tl" aria-hidden="true" />
   <img src="/floral_tl.png" alt="" class="floral floral-tr" aria-hidden="true" />
@@ -279,6 +333,166 @@
     border-radius: 4px;
     z-index: 2;
     transition: background-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  /* ── Subtle Animated Card Background ── */
+  .card-bg-fx {
+    position: absolute;
+    inset: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Ambient glowing orbs */
+  .card-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.55;
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+  }
+
+  .orb-top.haldi-orb {
+    width: 260px;
+    height: 260px;
+    top: -40px;
+    left: -40px;
+    background: radial-gradient(circle, rgba(247, 201, 72, 0.22) 0%, transparent 70%);
+    animation: orbDrift1 18s ease-in-out infinite alternate;
+  }
+
+  .orb-center.haldi-orb {
+    width: 320px;
+    height: 320px;
+    top: 36%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(224, 159, 25, 0.16) 0%, rgba(247, 201, 72, 0.08) 50%, transparent 70%);
+    animation: orbPulse 14s ease-in-out infinite alternate;
+  }
+
+  .orb-bottom.haldi-orb {
+    width: 280px;
+    height: 280px;
+    bottom: -60px;
+    right: -50px;
+    background: radial-gradient(circle, rgba(247, 201, 72, 0.2) 0%, transparent 70%);
+    animation: orbDrift2 20s ease-in-out infinite alternate;
+  }
+
+  @keyframes orbDrift1 {
+    0%   { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(40px, 50px) scale(1.15); }
+  }
+
+  @keyframes orbPulse {
+    0%   { transform: translate(-50%, -50%) scale(0.92); opacity: 0.4; }
+    100% { transform: translate(-50%, -50%) scale(1.12); opacity: 0.7; }
+  }
+
+  @keyframes orbDrift2 {
+    0%   { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-45px, -35px) scale(1.18); }
+  }
+
+  /* Sacred Mandala Watermark */
+  .mandala-watermark-wrap.haldi-mandala {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(340px, 70vw, 560px);
+    height: clamp(340px, 70vw, 560px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.06;
+    color: var(--haldi-accent);
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  :global([data-theme="dark"]) .mandala-watermark-wrap.haldi-mandala {
+    opacity: 0.09;
+    color: #f7c948;
+  }
+
+  .mandala-watermark {
+    width: 100%;
+    height: 100%;
+    animation: mandalaSlowSpin 180s linear infinite;
+    transform-origin: center center;
+  }
+
+  @keyframes mandalaSlowSpin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  /* Subtle golden sheen */
+  .card-shimmer.haldi-shimmer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      115deg,
+      transparent 0%,
+      transparent 40%,
+      rgba(247, 201, 72, 0.03) 48%,
+      rgba(255, 235, 175, 0.09) 50%,
+      rgba(247, 201, 72, 0.03) 52%,
+      transparent 60%,
+      transparent 100%
+    );
+    background-size: 250% 250%;
+    animation: shimmerSweep 14s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes shimmerSweep {
+    0%, 25%   { background-position: 200% 0; }
+    75%, 100% { background-position: -150% 0; }
+  }
+
+  /* Floating micro stardust sparkles */
+  .card-stardust {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .star.haldi-star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #f7c948;
+    box-shadow: 0 0 5px #ffe066;
+    opacity: 0.2;
+    animation: starFloat 7s ease-in-out infinite;
+  }
+
+  .s1 { top: 12%; left: 16%; animation-delay: 0s;   animation-duration: 6.5s; width: 3px; height: 3px; }
+  .s2 { top: 22%; right: 18%; animation-delay: 1.4s; animation-duration: 8s;   width: 2.5px; height: 2.5px; }
+  .s3 { top: 38%; left: 12%; animation-delay: 2.8s; animation-duration: 7.2s; width: 3.5px; height: 3.5px; }
+  .s4 { top: 52%; right: 14%; animation-delay: 0.7s; animation-duration: 9s;   width: 2px; height: 2px; }
+  .s5 { top: 68%; left: 20%; animation-delay: 3.2s; animation-duration: 7.8s; width: 3px; height: 3px; }
+  .s6 { top: 78%; right: 22%; animation-delay: 1.9s; animation-duration: 6.8s; width: 2.5px; height: 2.5px; }
+  .s7 { top: 88%; left: 15%; animation-delay: 4.1s; animation-duration: 8.5s; width: 3px; height: 3px; }
+  .s8 { top: 94%; right: 16%; animation-delay: 2.3s; animation-duration: 7.5s; width: 2px; height: 2px; }
+
+  @keyframes starFloat {
+    0%, 100% {
+      opacity: 0.12;
+      transform: translateY(0) scale(0.85);
+    }
+    50% {
+      opacity: 0.55;
+      transform: translateY(-8px) scale(1.2);
+    }
   }
 
   /* ── Border frames ── */

@@ -174,6 +174,18 @@ main {
   box-shadow: 0 6px 20px rgba(0,0,0,0.18);
 }
 
+:root {
+  --env-scale: 1;
+}
+
+@media (max-width: 540px) { :root { --env-scale: 0.90; } }
+@media (max-width: 480px) { :root { --env-scale: 0.82; } }
+@media (max-width: 420px) { :root { --env-scale: 0.75; } }
+@media (max-width: 380px) { :root { --env-scale: 0.70; } }
+@media (max-width: 350px) { :root { --env-scale: 0.62; } }
+@media (max-width: 320px) { :root { --env-scale: 0.56; } }
+@media (max-height: 600px) { :root { --env-scale: 0.68; } }
+
 /* ══════════════════════════════════════════
    ROYAL ENVELOPE OPENING OVERLAY
    ══════════════════════════════════════════ */
@@ -186,7 +198,9 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  overflow: hidden;
   transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s ease;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -198,8 +212,23 @@ main {
   pointer-events: none;
 }
 
-.env-container {
+/* Scaler wrapper to reserve exact bounding box and prevent horizontal cut-off */
+.env-wrapper {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(440px * var(--env-scale, 1));
+  height: calc(290px * var(--env-scale, 1));
+  flex-shrink: 0;
+  margin: auto 0;
+  max-width: calc(100vw - 32px);
+}
+
+.env-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 440px;
   height: 290px;
   perspective: 1000px;
@@ -207,12 +236,7 @@ main {
   align-items: center;
   justify-content: center;
   transform-origin: center center;
-}
-
-@media (max-width: 480px) {
-  .env-container {
-    transform: scale(calc((100vw - 32px) / 440));
-  }
+  transform: translate(-50%, -50%) scale(var(--env-scale, 1));
 }
 
 .envelope {
@@ -258,6 +282,29 @@ main {
 
 .opening .env-invitation-card {
   transform: translateY(-140px) scale(1.04);
+}
+
+.env-card-fx {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 25%, rgba(201, 169, 110, 0.16) 0%, transparent 70%);
+  overflow: hidden;
+}
+
+.env-card-fx::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+  background-size: 200% 100%;
+  animation: envCardSweep 5s ease-in-out infinite;
+}
+
+@keyframes envCardSweep {
+  0%, 25% { background-position: 150% 0; }
+  75%, 100% { background-position: -50% 0; }
 }
 
 .env-card-ornament {

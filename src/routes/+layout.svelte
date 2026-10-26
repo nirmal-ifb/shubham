@@ -8,6 +8,19 @@
   let isDarkMode = $state(true);
   let isEnvelopeOpened = $state(false);
   let isEnvelopeOpening = $state(false);
+  let envelopeScale = $state(1);
+
+  function updateEnvelopeScale() {
+    if (typeof window === 'undefined') return;
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    const availW = Math.max(180, w - 50);
+    const availH = Math.max(220, h - 180);
+    const scaleByW = availW / 440;
+    const scaleByH = availH / 310;
+    envelopeScale = Number(Math.max(0.52, Math.min(1, Math.min(scaleByW, scaleByH))).toFixed(3));
+    document.documentElement.style.setProperty('--env-scale', String(envelopeScale));
+  }
 
   const petalColorsLight = ['#f5c5cd', '#e8d5a3', '#fde8ee', '#d4a8b0', '#c9a96e'];
   const petalColorsDark  = ['#dfb76c', '#f5da8a', '#c89547', '#e8c872', '#b8860b'];
@@ -89,6 +102,10 @@
   }
 
   onMount(() => {
+    // Immediate envelope responsive scaling
+    updateEnvelopeScale();
+    window.addEventListener('resize', updateEnvelopeScale);
+
     // Dark mode is default: check if user explicitly chose light
     try {
       const saved = localStorage.getItem('theme');
@@ -151,6 +168,7 @@
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener('resize', resize);
+      window.removeEventListener('resize', updateEnvelopeScale);
       mo.disconnect();
     };
   });
@@ -172,30 +190,34 @@
 
 <!-- Royal Envelope Opening Experience -->
 <div class="envelope-overlay" class:opened={isEnvelopeOpened} class:opening={isEnvelopeOpening}>
-  <div class="env-container">
-    <div class="envelope" onclick={openEnvelope} role="button" tabindex="0" onkeydown={(e) => { if (e.key === 'Enter') openEnvelope(); }}>
-      <!-- Interior back -->
-      <div class="env-back-interior"></div>
+  <div class="env-wrapper" style="--env-scale: {envelopeScale}; width: {Math.round(440 * envelopeScale)}px; height: {Math.round(290 * envelopeScale)}px;">
+    <div class="env-container" style="transform: translate(-50%, -50%) scale({envelopeScale});">
+      <div class="envelope" onclick={openEnvelope} role="button" tabindex="0" onkeydown={(e) => { if (e.key === 'Enter') openEnvelope(); }}>
+        <!-- Interior back -->
+        <div class="env-back-interior"></div>
 
-      <!-- Card that slides out -->
-      <div class="env-invitation-card">
-        <h2 class="env-card-title">Shubham &amp; Shreya</h2>
-        <p class="env-card-sub">Together with their families</p>
+        <!-- Card that slides out -->
+        <div class="env-invitation-card">
+          <div class="env-card-fx" aria-hidden="true"></div>
+          <div class="env-card-ornament">✦ WEDDING INVITATION ✦</div>
+          <h2 class="env-card-title">Shubham &amp; Shreya</h2>
+          <p class="env-card-sub">Together with their families</p>
+        </div>
+
+        <!-- Envelope pockets -->
+        <div class="env-pocket-left"></div>
+        <div class="env-pocket-right"></div>
+        <div class="env-pocket-bottom"></div>
+
+        <!-- Flap (flips open) -->
+        <div class="env-flap"></div>
+
+        <!-- Golden Wax Seal -->
+        <button class="wax-seal" onclick={openEnvelope} aria-label="Break seal to open invitation">
+          <span class="seal-icon">💍</span>
+          <span class="seal-word">OPEN</span>
+        </button>
       </div>
-
-      <!-- Envelope pockets -->
-      <div class="env-pocket-left"></div>
-      <div class="env-pocket-right"></div>
-      <div class="env-pocket-bottom"></div>
-
-      <!-- Flap (flips open) -->
-      <div class="env-flap"></div>
-
-      <!-- Golden Wax Seal -->
-      <button class="wax-seal" onclick={openEnvelope} aria-label="Break seal to open invitation">
-        <span class="seal-icon">💍</span>
-        <span class="seal-word">OPEN</span>
-      </button>
     </div>
   </div>
   <p class="env-instructions">✨ Tap the Wax Seal to Open Your Invitation ✨</p>
