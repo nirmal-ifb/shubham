@@ -94,7 +94,7 @@
 
   <!-- Floral corners blend into cream/dark background -->
   <img src="/floral_tl.png" alt="" class="floral floral-tl" aria-hidden="true" />
-  <img src="/floral_tl.png" alt="" class="floral floral-tr" aria-hidden="true" />
+  <img src="/floral_tr.png" alt="" class="floral floral-tr" aria-hidden="true" />
   <img src="/floral_br.png" alt="" class="floral floral-br" aria-hidden="true" />
 
   <!-- Single animated border frame -->
@@ -110,7 +110,7 @@
     <!-- Haldi Groom Medallion Avatar -->
     <div class="avatar-wrap animate-scale-in">
       <div class="avatar-frame">
-        <img src="/groom_haldi_avatar.png" alt="Shubham - Haldi Ceremony" class="couple-avatar" />
+        <img src="/couple_avatar.png" alt="Shubham - Haldi Ceremony" class="couple-avatar" />
         <span class="avatar-sparkle s-top">🌿</span>
         <span class="avatar-sparkle s-right">🌼</span>
         <span class="avatar-sparkle s-left">✨</span>

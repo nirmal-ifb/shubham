@@ -82,7 +82,7 @@
 
   <!-- Floral corners blend into cream/dark background -->
   <img src="/floral_tl.png" alt="" class="floral floral-tl" aria-hidden="true" />
-  <img src="/floral_tl.png" alt="" class="floral floral-tr" aria-hidden="true" />
+  <img src="/floral_tr.png" alt="" class="floral floral-tr" aria-hidden="true" />
   <img src="/floral_br.png" alt="" class="floral floral-br" aria-hidden="true" />
 
   <!-- Single animated border frame -->
